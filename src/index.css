@@ -2,41 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Professional Financial Dashboard Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Colors - Financial Theme */
+    --background: 248 250 252;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* Primary - Deep Financial Blue */
+    --primary: 213 94% 18%;
     --primary-foreground: 210 40% 98%;
+    --primary-glow: 213 94% 28%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Sophisticated Gray */
+    --secondary: 215 16% 47%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Success/Growth - Financial Green */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 76% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Warning/Caution - Amber */
+    --warning: 43 96% 56%;
+    --warning-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Danger/Loss - Financial Red */
+    --danger: 0 84% 55%;
+    --danger-foreground: 0 0% 100%;
+
+    --muted: 215 27% 97%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 199 95% 95%;
+    --accent-foreground: 213 94% 18%;
+
+    --destructive: 0 84% 55%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 215 28% 92%;
+    --input: 215 28% 92%;
+    --ring: 213 94% 18%;
 
-    --radius: 0.5rem;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(213 94% 18%), hsl(213 94% 28%));
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(215 27% 99%));
+
+    /* Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(213 94% 18% / 0.1), 0 2px 4px -1px hsl(213 94% 18% / 0.06);
+    --shadow-card-hover: 0 10px 15px -3px hsl(213 94% 18% / 0.15), 0 4px 6px -2px hsl(213 94% 18% / 0.1);
+    --shadow-glow: 0 0 20px hsl(213 94% 28% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +129,41 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Financial Card Styles */
+  .financial-card {
+    @apply bg-gradient-to-br from-card to-accent/20 shadow-card hover:shadow-card-hover transition-all duration-300 rounded-xl border border-border/50 p-6;
+  }
+
+  .financial-card:hover {
+    @apply transform -translate-y-1;
+  }
+
+  /* Loading Animation */
+  .pulse-glow {
+    @apply animate-pulse;
+    box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.5);
+  }
+
+  /* Stock Price Animations */
+  .price-up {
+    @apply text-success animate-pulse;
+  }
+
+  .price-down {
+    @apply text-danger animate-pulse;
+  }
+
+  /* Professional Button Styles */
+  .btn-analyze {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground shadow-glow hover:shadow-card-hover transform hover:scale-105 transition-all duration-300;
+  }
+
+  /* Search Input Enhancement */
+  .search-input {
+    @apply border-2 border-border focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300;
   }
 }
