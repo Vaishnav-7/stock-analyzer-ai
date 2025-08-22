@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
-from .services.stock_service import get_stock_price
-from .services.news_service import get_company_news
-from .services.rag_service import analyze_company_pdf
+from app.services.stock_service import get_stock_price
+from app.services.news_service import get_company_news
+from app.services.rag_service import analyze_company_pdf
 
 router = APIRouter()
 
