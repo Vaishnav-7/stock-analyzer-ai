@@ -1,9 +1,9 @@
 from ..utils.pdf_loader import load_pdf
 from ..utils.config import OPENAI_API_KEY
-from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
-from langchain.vectorstores import FAISS
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_community.chat_models import ChatOpenAI
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings import OpenAIEmbeddings
 
 def analyze_company_pdf(pdf_path: str):
     documents = load_pdf(pdf_path)
